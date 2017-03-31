@@ -1,0 +1,130 @@
+#app{
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#wrapper{
+  flex: 1 1 auto;
+}
+#table{
+  width: 100%;
+  table-layout: fixed;
+}
+
+#table tr.highlighted{
+  color: white;
+  background-color: #428bca;
+}
+
+#contentWrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+  min-height: 100%;
+  margin-top: 100px;
+}
+
+#contentArea{
+  display: flex;
+  flex: 1;
+  flex-grow: 1;
+  flex-shrink: 1;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.table-fixed tbody{
+  height: 100%;
+  overflow-y: auto;
+  display: block;
+}
+
+.table-fixed > thead::-webkit-scrollbar{
+  background-color: inherit;
+}
+
+.table-fixed > thead, .table-fixed > tbody > tr{
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.table-fixed > thead > tr:after, .table-fixed > tbody >tr:after{
+  content: ' ';
+  display: block;
+  visibility: hidden;
+  clear: both;
+}
+
+.table-fixed > thead > tr > th:after, .table-fixed > tbody >tr > td:after{
+  content: ' ';
+  display: table-cell;
+  visibility: hidden;
+  clear: both;
+}
+
+.table-fixed > tbody tr td, .table-fixed > thead tr th{
+  word-wrap: break-word;
+}
+[v-cloak]{
+  display:none !important;
+}
+.modalShade{
+	overflow: auto;
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 2;
+	padding-top: 50px;
+	background-color: rgba(0,0,0,0.2);
+	transition: opacity .2s ease;
+}
+
+.modalContainer{
+	box-sizing: border-box;
+	word-wrap: break-word;
+	margin: 1em auto;
+	padding: 0 1em;
+	overflow: hidden;
+	background-color: white;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+	transition: all .2s ease;
+}
+
+.modal-enter, .modal-leave{
+	opacity: 0;
+}
+
+.modal-enter .modal-container,
+.modal-leave .modal-container{
+  -webkit-transform: scale(1.1);
+	transform: scale(1.1);
+}
+
+@media only screen and (max-width: 767px), (min-device-width: 320px) and (max-device-width: 767px){
+  #contentWrapper{
+    flex-direction: column;
+  }
+  .table-fixed > thead{
+    width: 100% !important;
+  }
+  .table-fixed > tbody tr td, .table-fixed > thead tr th{
+    white-space: normal !important;
+  }
+  .modalSize{
+    width: 300px !important;
+  }
+}
+@media only screen and (min-width: 768px), (min-device-width: 768px) and (max-device-width: 1024px){
+	.modalSize{
+		width: 600px !important;
+  }
+}

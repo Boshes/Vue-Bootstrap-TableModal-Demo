@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+	<meta name="description" content="">
+	<meta name="author" content="">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel='stylesheet' href='stylesheet.css' />
+	<title>Vue Bootstrap Table Select</title>
+</head>
+<body>
+	<div id="app" v-cloak>
+    <div id='wrapper'>
+      <div class='container-fluid'>
+        <div id='contentWrapper'>
+          <div class='table-responsive col-xs-6' id='contentArea' style='flex-direction:row;'>
+            <table id='table' class='table table-bordered table-hover table-fixed' v-bind:style='{"display": "" + fitContent.block}'>
+              <thead v-bind:style='{"overflow-y": "" + fitContent.scroll, "width": "" + fitContent.scrollWidth}'>
+                <tr>
+                  <th class='col-xs-6'>
+                    Name
+                  </th>
+                  <th class='col-xs-6' v-bind:style='{"border-right": "" + fitContent.border}'>
+                    Content
+                  </th>
+                </tr>
+              </thead>
+              <tbody v-bind:style='{"height": "" + fitContent.body, "display": "" + fitContent.block}'>
+                <tr v-for='(item, index) in collection' v-bind:value='index' :key='index'>
+                  <td class='col-xs-6' v-text='item.name'></td>
+                  <td class='col-xs-6' v-text='item.content'></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class='col-xs-6' id='contentArea' style='overflow-y:initial'>
+            <div class='text-center'>
+              <label class='control-label'>Select Mode</label>
+              <br />
+              <div class='col-xs-6'>
+                <label class='radio-inline'>
+                  <input type='radio' v-model='selectMode' v-bind:value='0' />
+                  <span>Single</span>
+                </label>
+              </div>
+              <div class='col-xs-6'>
+                <label class='radio-inline'>
+                  <input type='radio' v-model='selectMode' v-bind:value='1' />
+                  <span>Multiple</span>
+                </label>
+              </div>
+              <br />
+            </div>
+            <br />
+            <button class='btn btn-lg btn-default center-block' v-on:click='openModal'>Open Selected Item</button>
+            <component :show='showModalWindow' is='modal' :on-close='close' v-if='selectedItem || selectedCollection'>
+              <div class='modal-header'>
+                <button class='close' v-on:click='close'> &times;</button>
+                <h4 class='modal-title'>Modal Title</h4>
+              </div>
+              <div class='modal-body'>
+                <div v-if='selectedItem'>
+                  <h5 v-text='collection[selectedItem].name + " - " + collection[selectedItem].content'></h5>
+                </div>
+                <div v-if='selectedCollection'>
+                  <ul>
+                    <li v-for='(item, index) in selectedCollection' v-bind:value='collection[item].name' :key='collection[item].name' v-text='collection[item].name + " - " + collection[item].content'></li>
+                  </ul>
+                </div>
+              </div>
+              <div class='modal-footer'>
+                <button class='btn btn-success pull-left' v-on:click='close'>Success</button>
+                <button class='btn btn-danger pull-right' v-on:click='close'>Close</button>
+              </div>
+            </component>
+          </div>
+        </div>
+      </div>
+    </div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.6/vue.min.js"></script>
+  <script src='script.js'></script>
+</div>
+</body>
+</html>
