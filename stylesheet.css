@@ -9,6 +9,7 @@
 }
 #table{
   width: 100%;
+  display: block;
   table-layout: fixed;
 }
 
@@ -45,11 +46,17 @@
   display: block;
 }
 
+.table-fixed > thead{
+	display: table;
+	table-layout: fixed;
+	width:100%;
+}
+
 .table-fixed > thead::-webkit-scrollbar{
   background-color: inherit;
 }
 
-.table-fixed > thead, .table-fixed > tbody > tr{
+.table-fixed > tbody > tr{
   display: table;
   table-layout: fixed;
   width: 100%;
@@ -71,6 +78,7 @@
 
 .table-fixed > tbody tr td, .table-fixed > thead tr th{
   word-wrap: break-word;
+  display: inline-block;
 }
 [v-cloak]{
   display:none !important;
@@ -111,10 +119,16 @@
 
 @media only screen and (max-width: 767px), (min-device-width: 320px) and (max-device-width: 767px){
   #contentWrapper{
-    flex-direction: column;
+    flex-direction: column !important;
   }
   .table-fixed > thead{
     width: 100% !important;
+  }
+  .table-fixed > tbody > tr{
+    display: table !important;
+  }
+  .table-fixed > tbody > tr > td{
+    display: table-cell !important;
   }
   .table-fixed > tbody tr td, .table-fixed > thead tr th{
     white-space: normal !important;

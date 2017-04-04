@@ -91,8 +91,7 @@ var vue = new Vue({
   methods: {
     'singleSelect': function(){
       console.log("here")
-      var isMouseDown = false
-      var isHighlighted = false
+      var isMouseDown = false, isHighlighted
       var self = this
       $("#table tbody tr").on() //starts jQuery events
         .mousedown(function () {
@@ -122,8 +121,7 @@ var vue = new Vue({
         })
     },
     'multiSelect': function(){
-      var isMouseDown = false
-      var isHighlighted = false
+      var isMouseDown = false, isHighlighted
     	var self = this
       $("#table tbody tr").on() //Starts jQuery events
     		.mousedown(function () {
