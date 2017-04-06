@@ -90,7 +90,6 @@ var vue = new Vue({
   },
   methods: {
     'singleSelect': function(){
-      console.log("here")
       var isMouseDown = false, isHighlighted
       var self = this
       $("#table tbody tr").on() //starts jQuery events
@@ -168,18 +167,31 @@ var vue = new Vue({
         })
     },
     'openModal': function(){
-      this.showModalWindow = true
+      if(this.selectedItem!=null || this.selectedCollection.length>0){
+        this.showModalWindow = true
+      }
     },
     'close': function(){
       this.showModalWindow = false
       this.condition = null
+    },
+    'success':function(){
+      $('#table tbody tr').each(function(){
+        if($(this).hasClass('highlighted')){
+          $(this).toggleClass('highlighted')
+        }
+      })
+      this.resetSelection()
+      this.showModalWindow = false
+    },
+    'resetSelection':function(){
+      this.selectedItem = null
+      this.selectedCollection.length = 0
     }
   },
   watch:{
     'selectMode':function(){
-      this.selectedItem = null
-      this.selectedCollection.length = 0
-      console.log("change mode")
+      this.resetSelection()
       $('#table tbody tr').each(function(){
 					if($(this).hasClass('highlighted')){
 						$(this).toggleClass('highlighted')

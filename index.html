@@ -7,7 +7,7 @@
 	<meta name="author" content="">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel='stylesheet' href='stylesheet.css' />
-	<title>Vue Bootstrap Table Select</title>
+	<title>Vue Bootstrap Table Modal Demo</title>
 </head>
 <body>
 	<div id="app" v-cloak>
@@ -36,25 +36,25 @@
           </div>
           <div class='col-xs-5' id='contentArea' style='overflow-y:initial'>
             <div class='text-center'>
+							<br />
               <label class='control-label'>Select Mode</label>
               <br />
-              <div class='col-xs-6'>
+              <div class='col-sm-6'>
                 <label class='radio-inline'>
                   <input type='radio' v-model='selectMode' v-bind:value='0' />
                   <span>Single</span>
                 </label>
               </div>
-              <div class='col-xs-6'>
+              <div class='col-sm-6'>
                 <label class='radio-inline'>
                   <input type='radio' v-model='selectMode' v-bind:value='1' />
                   <span>Multiple</span>
                 </label>
               </div>
-              <br />
             </div>
             <br />
-            <button class='btn btn-lg btn-default center-block' v-on:click='openModal'>Open Selected Item</button>
-            <component :show='showModalWindow' is='modal' :on-close='close' v-if='selectedItem || selectedCollection'>
+            <button class='btn btn-lg btn-default center-block' v-on:click='openModal'>Details</button>
+            <component :show='showModalWindow' is='modal' :on-close='close' v-if='selectedItem || selectedCollection.length>0'>
               <div class='modal-header'>
                 <button class='close' v-on:click='close'> &times;</button>
                 <h4 class='modal-title'>Modal Title</h4>
@@ -70,7 +70,7 @@
                 </div>
               </div>
               <div class='modal-footer'>
-                <button class='btn btn-success pull-left' v-on:click='close'>Success</button>
+                <button class='btn btn-success pull-left' v-on:click='success'>Success</button>
                 <button class='btn btn-danger pull-right' v-on:click='close'>Close</button>
               </div>
             </component>
