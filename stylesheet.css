@@ -4,9 +4,24 @@
   flex-direction: column;
 }
 
+#header{
+  flex-shrink: 0;
+  margin-bottom: 0;
+  border-radius: 0;
+  background-color: #fff;
+}
+
 #wrapper{
   flex: 1 0 auto;
 }
+
+#footer {
+  background-color: #333;
+  flex-shrink: 0;
+  color: #eee;
+  padding: 20px;
+}
+
 #table{
   width: 100%;
   display: block;
@@ -25,7 +40,6 @@
   align-items: center;
   align-content: stretch;
   min-height: 100%;
-  margin-top: 100px;
 }
 
 #contentArea{
@@ -79,9 +93,11 @@
   word-wrap: break-word;
   display: inline-block;
 }
+
 [v-cloak]{
   display:none !important;
 }
+
 .modalShade{
 	overflow: auto;
 	position: fixed;
@@ -110,8 +126,7 @@
 	opacity: 0;
 }
 
-.modal-enter .modal-container,
-.modal-leave .modal-container{
+.modal-enter .modalContainer, .modal-leave .modalContainer{
   -webkit-transform: scale(1.1);
 	transform: scale(1.1);
 }
@@ -120,20 +135,31 @@
   #contentWrapper{
     flex-direction: column !important;
   }
+
   .table-fixed > thead{
     width: 100% !important;
   }
+
   .table-fixed > tbody > tr{
     display: table !important;
   }
+
   .table-fixed > tbody > tr > td{
     display: table-cell !important;
   }
+
   .table-fixed > tbody tr td, .table-fixed > thead tr th{
     white-space: normal !important;
   }
+
   .modalSize{
     width: 300px !important;
+  }
+}
+
+@media only screen and (orientation:landscape){
+  .modalSize{
+    width: 500px !important;
   }
 }
 @media only screen and (min-width: 768px), (min-device-width: 768px) and (max-device-width: 1024px){
