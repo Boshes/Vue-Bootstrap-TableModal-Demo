@@ -61,8 +61,8 @@
 }
 
 .table-fixed > thead{
-	display: table;
-	table-layout: fixed;
+  display: table;
+  table-layout: fixed;
 }
 
 .table-fixed > thead::-webkit-scrollbar{
@@ -99,36 +99,36 @@
 }
 
 .modalShade{
-	overflow: auto;
-	position: fixed;
-	left: 0;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	z-index: 2;
-	padding-top: 50px;
-	background-color: rgba(0,0,0,0.2);
-	transition: opacity .2s ease;
+  overflow: auto;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  padding-top: 50px;
+  background-color: rgba(0,0,0,0.2);
+  transition: opacity .2s ease;
 }
 
 .modalContainer{
-	box-sizing: border-box;
-	word-wrap: break-word;
-	margin: 1em auto;
-	padding: 0 1em;
-	overflow: hidden;
-	background-color: white;
-	box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-	transition: all .2s ease;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  margin: 1em auto;
+  padding: 0 1em;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: all .2s ease;
 }
 
-.modal-enter, .modal-leave{
-	opacity: 0;
+.modal-enter, .modal-leave-active{
+  opacity: 0;
 }
 
-.modal-enter .modalContainer, .modal-leave .modalContainer{
+.modal-enter .modalContainer, .modal-leave-active .modalContainer{
   -webkit-transform: scale(1.1);
-	transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 @media only screen and (max-width: 767px), (min-device-width: 320px) and (max-device-width: 767px){
@@ -163,7 +163,7 @@
   }
 }
 @media only screen and (min-width: 768px), (min-device-width: 768px) and (max-device-width: 1024px){
-	.modalSize{
-		width: 600px !important;
+  .modalSize{
+    width: 600px !important;
   }
 }

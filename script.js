@@ -3,7 +3,7 @@ var vue = new Vue({
   components: {
     'modal':{
       name: 'modal',
-      template:'<div class="modalHolder"><div class="modalShade" v-if="show && activeModal(condition)" transition="modal" v-on:click="close"><div class="modalContainer modalSize modal-sm modal-content" @click.stop><slot></slot></div></div></div>',
+      template:'<div class="modalHolder"><transition name="modal"><div class="modalShade" v-if="show && activeModal(condition)" v-on:click="close"><div class="modalContainer modalSize modal-sm modal-content" @click.stop><slot></slot></div></div></transition></div>',
       props: {
         show: {
           type: Boolean,
