@@ -3,7 +3,7 @@
 Simple Vue template which uses a Bootstrap table and jQuery to select a table row.
 
 ## Demo ##
-https://boshes.github.io/Vue-Bootstrap-TableModal-Demo/
+https://boshes.github.io/Vue-Bootstrap-TableSelect/
 
 ### Details ###
 The Bootstrap table is responsive for desktop and mobile display, allows for text wrapping, fixed header row and scrollable table body.
